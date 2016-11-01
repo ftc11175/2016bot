@@ -1,0 +1,36 @@
+package org.firstinspires.ftc.robotcontroller;
+
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+
+/**
+ * Created by Student on 10/13/2016.
+ */
+public class flywheel extends OpMode {
+
+    DcMotor topWheel;
+    DcMotor bottomWheel;
+
+     final double TOP_ON_POSITION = 1.0;
+     final double TOP_OFF_POSITION = 0.5;
+     final double BOTTOM_ON_POSITION = 1.0;
+     final double BOTTOM_OFF_POSITION = 0.5;
+
+    @Override
+    public void init() {
+        topWheel = hardwareMap.servo.get("top_wheel");
+        bottomWheel = hardwareMap.servo.get("bottom_wheel");
+
+}
+    @Override
+    public void loop() {
+    if (gamepad1.x) {
+        topWheel.setPosition(TOP_ON_POSITION);
+        bottomWheel.setPosition(BOTTOM_ON_POSITION);
+    }
+    else {
+        topWheel.setPostion(TOP_OFF_POSITION);
+        bottomWheel.setPosition(BOTTOM_OFF_POSITION);
+    }
+
+}
+
